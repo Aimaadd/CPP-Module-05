@@ -10,14 +10,16 @@ int main() {
     try {
         Bureaucrat a("A", 2);
         PresidentialPardonForm forA;
+        RobotomyRequestForm forB;
+        ShrubberyCreationForm forC;
         // forA.beSigned(a);
         // forA.beSigned(a); //should fail
         // forA.execute(a);
         // forA.execute(a); //should fail
-        a.SignForm(forA);
-        a.SignForm(forA); //should fail
-        a.executeForm(forA);
-        a.executeForm(forA); //should fail
+        a.SignForm(forC);
+        a.SignForm(forC); //should fail
+        a.executeForm(forC);
+        a.executeForm(forC); //should fail
     }
     catch (std::exception &e) {
         std::cout << e.what() << std::endl;

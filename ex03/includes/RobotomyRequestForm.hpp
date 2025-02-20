@@ -15,6 +15,7 @@ class RobotomyRequestForm : public AForm {
         bool execute(Bureaucrat &executor) const;
         bool getRobo();
         void Robotomize(Bureaucrat &Bureaucrat) const;
+        RobotomyRequestForm& operator=(RobotomyRequestForm const &src);
 };
 
 #endif

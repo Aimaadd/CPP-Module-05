@@ -53,7 +53,10 @@ bool ShrubberyCreationForm::execute(Bureaucrat &executor) const {
 
 void ShrubberyCreationForm::writeToFile(std::string filename) const {
     std::ofstream file;
-    file.open(filename);
+    int filename_len = filename.length();
+    char tmp[filename_len + 1];
+    strcpy(tmp, filename.c_str());
+    file.open(tmp);
     file << "       _-_\n    /~~   ~~\\\n /~~         ~~\\\n{               }\n \\  _-     -_  /\n   ~  \\\\ //  ~\n_- -   | | _- _\n  _ -  | |   -_\n      // \\\n";
     file.close();
 }

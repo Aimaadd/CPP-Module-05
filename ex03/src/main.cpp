@@ -9,7 +9,7 @@ int main() {
     std::cout << "-----Exception tests----" << std::endl;
     try {
         Bureaucrat a("A", 2);
- 
+        ShrubberyCreationForm forA;
         a.SignForm(forA);
         a.SignForm(forA); //should fail
         a.executeForm(forA);

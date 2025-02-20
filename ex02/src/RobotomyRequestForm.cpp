@@ -7,6 +7,7 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45) {
     this->_robotomized = false;
+    this->_target = target;
     std::cout << "RobotomyRequestForm constructor called" << std::endl;
 }
 
@@ -15,7 +16,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
 void RobotomyRequestForm::Robotomize(Bureaucrat &Bureaucrat) const {
-    std::srand(std::time(0));
+    std::srand(time(0));
     int randValue = std::rand();
     if (randValue % 2 == 0) {
         std::cout << Bureaucrat.getName() << " is being robotomized" << std::endl;
@@ -55,4 +56,11 @@ bool RobotomyRequestForm::execute(Bureaucrat &executor) const {
 
 bool RobotomyRequestForm::getRobo() {
     return this->_robotomized;
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &src) {
+    if (this != &src) {
+        this->_target = src._target;
+    }
+    return *this;
 }

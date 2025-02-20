@@ -12,7 +12,7 @@ class AForm {
         mutable bool _executed;
         const int _gradeToSign;
         const int _gradeToExecute;
-        const std::string _target;
+        std::string _target;
     public:
         AForm();
         AForm(std::string name, int gradeToSign, int gradeToExecute);
