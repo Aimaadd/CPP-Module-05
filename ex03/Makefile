@@ -1,7 +1,7 @@
 CXX = c++
 CXXFLAGS = -Werror -Wextra -Wall -std=c++98 #-Wpedantic
 NAME = Form
-FILES = src/main.cpp src/Bureaucrat.cpp src/AForm.cpp src/PresidentialPardonForm.cpp src/RobotomyRequestForm.cpp src/ShrubberyCreationForm.cpp
+FILES = src/main.cpp src/Bureaucrat.cpp src/AForm.cpp src/PresidentialPardonForm.cpp src/RobotomyRequestForm.cpp src/ShrubberyCreationForm.cpp src/Intern.cpp
 OBJS = $(FILES:.cpp=.o)
 
 all: $(NAME)

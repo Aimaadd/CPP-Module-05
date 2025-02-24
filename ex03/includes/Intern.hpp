@@ -8,9 +8,13 @@
 
 class Intern {
     private: 
-        bool _jobDone = false;
+        bool _jobDone;
     public:
-        AForm makeForm(std::string formName, std::string target);
+        Intern();
+        Intern(Intern const &src);
+        ~Intern();
+        Intern& operator=(Intern const &src);
+        AForm* makeForm(std::string formName, std::string target);
         class FormNotFoundException : public std::exception {
             public:
                 virtual const char* what() const throw() {

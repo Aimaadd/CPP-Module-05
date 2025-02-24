@@ -1,15 +1,37 @@
 #include "../includes/Intern.hpp"
 
-AForm Intern::makeForm(std::string formName, std::string target) {
-    AForm form;
+Intern::Intern() : _jobDone(false) {
+    std::cout << "Intern default constructor called" << std::endl;
+}
+
+Intern::~Intern() {
+    std::cout << "Intern destructor called" << std::endl;
+}
+
+Intern::Intern(Intern const &src) {
+    this->_jobDone = src._jobDone;
+    std::cout << "Intern copy constructor called" << std::endl;
+}
+
+Intern &Intern::operator=(Intern const &src) {
+    if (this != &src) {
+        this->_jobDone = src._jobDone;
+    }
+    return *this;
+}
+
+AForm* Intern::makeForm(std::string formName, std::string target) {
     if (formName == "robotomy request") {
-        form = RobotomyRequestForm(target);
+        this->_jobDone = true;
+        return new RobotomyRequestForm(target);
     } else if (formName == "presidential pardon") {
-        form = PresidentialPardonForm(target);
+        this->_jobDone = true;
+        return new PresidentialPardonForm(target);
     } else if (formName == "shrubbery creation") {
-        form = ShrubberyCreationForm(target);
+        this->_jobDone = true;
+        return new ShrubberyCreationForm(target);
     } else {
+        this->_jobDone = true;
         throw Intern::FormNotFoundException();
     }
-    return form;
 }
